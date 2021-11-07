@@ -1,4 +1,5 @@
 import 'bootstrap/dist/css/bootstrap.min.css';
+import 'bootstrap-icons/font/bootstrap-icons.css';
 import 'alertifyjs/build/css/alertify.min.css'
 import 'sweetalert2'
 import 'jbox/dist/jBox.all.min.css';

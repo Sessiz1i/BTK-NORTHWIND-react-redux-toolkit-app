@@ -1,19 +1,23 @@
 import React from 'react';
-import {Button, Table} from "react-bootstrap";
-import {useGetProductsQuery, useGetSelectedCategoryProductsQuery,} from "./productSlice";
+import {Table} from "react-bootstrap";
+import {useGetCategoryProductsQuery, useGetProductsQuery, useRemoveProductMutation} from "./productSlice";
 import {useDispatch, useSelector} from "react-redux";
 import {addToCart} from "../Cart/cartSlice";
 import alertify from "alertifyjs";
 import Swal from 'sweetalert2'
 import {toast} from 'material-react-toastify';
+import {Link} from "react-router-dom";
 
 
 const ProductList = () => {
+    const[removeProduct] =useRemoveProductMutation()
     const dispatch = useDispatch()
-    const currentCategory = useSelector((state) => state?.currentCategory)
-    const selectedCategoryProducts = useGetSelectedCategoryProductsQuery(currentCategory?.id)
-    const products = useGetProductsQuery()
-    const {data, error, isError, isSuccess, isLoading} = currentCategory ? selectedCategoryProducts : products
+    const {currentCategory} = useSelector((state) => state?.categories)
+    const {data: products, isError, isLoading, isSuccess} = currentCategory
+        // eslint-disable-next-line react-hooks/rules-of-hooks
+        ? useGetCategoryProductsQuery(currentCategory.id)
+        // eslint-disable-next-line react-hooks/rules-of-hooks
+        : useGetProductsQuery()
     const onSave = (product) => {
         dispatch(addToCart(product))
         alertify.success(`${product?.productName} <br> Added to cart!`)
@@ -33,15 +37,15 @@ const ProductList = () => {
         <div className={"mt-sm-5"}>
             <h3>Products{` `}
                 <span className="text-info">
-                    {isError && error.error}
+                    {isError && 'Error fetching...'}
                     {isLoading && 'Loading...'}
                     {isSuccess && currentCategory?.name}
                 </span>
             </h3>
             <div className="card card-body px-5 pt-5">
-                <Table responsive>
+                <Table className={"align-middle"} responsive>
                     <thead>
-                    <tr>
+                    <tr className={"text-center"}>
                         <th>#</th>
                         <th>Name</th>
                         <th>Units In Stock</th>
@@ -51,13 +55,17 @@ const ProductList = () => {
                     </thead>
                     <tbody>
                     {
-                        data && data.map((product, index) => (
+                        products && products.map((product, index) => (
                             <tr key={index}>
                                 <th scope="row">{product.id}</th>
                                 <td>{product.productName}</td>
                                 <td>{product.unitsInStock}</td>
                                 <td>{product.unitPrice}</td>
-                                <td><Button onClick={() => onSave(product)} className="text-sm btn-sm" color="primary">+ Card</Button></td>
+                                <td className={"text-center"}>
+                                    <i role={"button"} onClick={() => onSave(product)} className="text-success bi bi-cart-plus fs-4 me-2"/>
+                                    <Link to={'/edit-product/' + product.id}  className="text-primary bi bi-pencil-square fs-4 me-2" />
+                                    <i role={"button"} onClick={()=>removeProduct(product.id)} className="text-danger bi bi-trash fs-4 me-2" />
+                                </td>
                             </tr>
                         ))
                     }

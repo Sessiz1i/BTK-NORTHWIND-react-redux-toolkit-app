@@ -1,14 +1,6 @@
 {
   "products": [
     {
-      "id": 1,
-      "categoryId": 2,
-      "productName": "Chai",
-      "quantityPerUnit": "48 - 6 oz jars",
-      "unitPrice": "24",
-      "unitsInStock": 53
-    },
-    {
       "id": 2,
       "categoryId": 1,
       "productName": "Chang",
@@ -17,44 +9,12 @@
       "unitsInStock": 17
     },
     {
-      "id": 4,
-      "categoryId": 1,
-      "productName": "Chef Anton's Cajun Seasoning",
-      "quantityPerUnit": "48 - 6 oz jars",
-      "unitPrice": "222",
-      "unitsInStock": 53
-    },
-    {
       "id": 5,
       "categoryId": 2,
       "productName": "Chef Anton's Gumbo Mix",
       "quantityPerUnit": "36 boxes",
       "unitPrice": "21",
-      "unitsInStock": 0
-    },
-    {
-      "id": 6,
-      "categoryId": 2,
-      "productName": "Grandma's Boysenberry Spread",
-      "quantityPerUnit": "12 - 8 oz jars",
-      "unitPrice": 25,
-      "unitsInStock": 120
-    },
-    {
-      "id": 7,
-      "categoryId": 7,
-      "productName": "Uncle Bob's Organic Dried Pears",
-      "quantityPerUnit": "12 - 1 lb pkgs.",
-      "unitPrice": 30,
-      "unitsInStock": 15
-    },
-    {
-      "id": 8,
-      "categoryId": 2,
-      "productName": "Northwoods Cranberry Sauce",
-      "quantityPerUnit": "12 - 12 oz jars",
-      "unitPrice": 40,
-      "unitsInStock": 100
+      "unitsInStock": "50"
     },
     {
       "id": 9,
@@ -575,86 +535,51 @@
       "quantityPerUnit": "24 - 150 g jars",
       "unitPrice": 15,
       "unitsInStock": 101
-    },
-    {
-      "id": 74,
-      "categoryId": 7,
-      "productName": "Longlife Tofu",
-      "quantityPerUnit": "5 kg pkg.",
-      "unitPrice": 10,
-      "unitsInStock": 4
-    },
-    {
-      "id": 75,
-      "categoryId": 1,
-      "productName": "Rhönbräu Klosterbier",
-      "quantityPerUnit": "24 - 0.5 l bottles",
-      "unitPrice": 7.75,
-      "unitsInStock": 125
-    },
-    {
-      "id": 76,
-      "categoryId": 1,
-      "productName": "Lakkaliköör",
-      "quantityPerUnit": "500 m",
-      "unitPrice": 18,
-      "unitsInStock": 57
-    },
-    {
-      "id": 77,
-      "categoryId": 2,
-      "productName": "Original Frankfurter grüne Soße",
-      "quantityPerUnit": "12 boxes",
-      "unitPrice": 13,
-      "unitsInStock": 32
-    },
-    {
-      "productName": "Laptop",
-      "categoryId": 4,
-      "unitPrice": "1000",
-      "quantityPerUnit": "1",
-      "unitsInStock": "2",
-      "id": 78
     }
   ],
   "categories": [
     {
       "id": 1,
+      "name": "Bever",
+      "seoUrl": "bever"
+    },
+    {
+      "id": 2,
       "name": "Beverages",
       "seoUrl": "beverages"
     },
     {
-      "id": 2,
+      "id": 3,
       "name": "Condiments",
       "seoUrl": "condiments"
     },
     {
-      "id": 3,
+      "id": 4,
       "name": "Confections",
       "seoUrl": "confections"
     },
     {
-      "id": 4,
+      "id": 5,
       "name": "Dairy Products",
       "seoUrl": "dairy-products"
     },
     {
-      "id": 5,
+      "id": 6,
       "name": "Grains/Cereals",
       "seoUrl": "grains-cereals"
     },
     {
-      "id": 6,
+      "id": 7,
       "name": "Meat/Poultry",
       "seoUrl": "meat-poultry"
     },
     {
-      "id": 7,
+      "id": 8,
       "name": "Produce",
       "seoUrl": "produce"
     },
     {
-      "id": 8,
+      "id": 9,
       "name": "Seafood",
       "seoUrl": "seafood"
     }
